@@ -13,7 +13,7 @@ public class General extends Human{
         this.age = age;
     }
 
-    public void addSoldier(Commander commander) {
+    public void addCommander(Commander commander) {
         if(commanders.size() == max_commanders) {
             System.out.println("Maximum commanders for general " + this.name);
             return;

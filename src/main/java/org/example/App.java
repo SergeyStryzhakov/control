@@ -1,25 +1,30 @@
 package org.example;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Hello world!
- *
  */
-public class App
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         List<Human> army = new LinkedList<>();
-        Human soldier1 = new Soldier("Soldier1", "Gun");
-        Human soldier2 = new Soldier("Soldier2", "Gun");
-        Human soldier3 = new Soldier("Soldier3", "Gun");
-        Human soldier4 = new Soldier("Soldier4", "Gun");
-        Human soldier5 = new Soldier("Soldier5", "Gun");
-        Human soldier6 = new Soldier("Soldier6", "Gun");
-        Human commander1 = new Commander("Commander1");
-        Human commander2 = new Commander("Commander2");
-        Human general = new General("General", 35);
+        General general = new General("General", 35);
+        Commander commander1 = new Commander("Commander1", general);
+        Commander commander2 = new Commander("Commander2", general);
+        Commander commander3 = new Commander("Commander3", general);
+        Soldier soldier1 = new Soldier("Soldier1", "Gun",commander1);
+        Soldier soldier2 = new Soldier("Soldier2", "Gun",commander1);
+        Soldier soldier3 = new Soldier("Soldier3", "Gun",commander1);
+        Soldier soldier4 = new Soldier("Soldier4", "Gun",commander2);
+        Soldier soldier5 = new Soldier("Soldier5", "Gun",commander2);
+        Soldier soldier6 = new Soldier("Soldier6", "Gun",commander2);
+
+
+        general.addCommander(commander1);
+        general.addCommander(commander2);
+general.addCommander(commander3);
+
         army.add(soldier1);
         army.add(soldier2);
         army.add(soldier3);
@@ -31,12 +36,10 @@ public class App
         army.add(general);
 
 
-
-        for (Human soldier: army) {
+        for (Human soldier : army) {
             soldier.canFight();
             soldier.report();
         }
-
 
 
     }
